@@ -1,10 +1,13 @@
 import pandas as pd
 from server.models.input_model import Data
+from pathlib import Path
 from server.models.response_model import PredictionResponse
 import joblib
 
 top_countries = ['Other','India','USA','Canada','Australia','UK','Germany','Mexico','Turkey','France']
-model = joblib.load("ML/predictor/MentalHealthPredictor.pkl")
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_PATH = BASE_DIR / "models" / "MentalHealthPredictor.pkl"
+model = joblib.load(MODEL_PATH)
 
 def predict_data(data : Data):
     Region = data.country if data.country in top_countries else "Other"
