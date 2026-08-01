@@ -8,10 +8,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mental-health-prediction-blush.vercel.app"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get('/')
+def root():
+    return {"message": "Welcome to the Mental Health Predictor API!"}
 
 app.include_router(predict_router)
