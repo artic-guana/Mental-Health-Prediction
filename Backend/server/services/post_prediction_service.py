@@ -5,8 +5,8 @@ from server.models.response_model import PredictionResponse
 import joblib
 
 top_countries = ['Other','India','USA','Canada','Australia','UK','Germany','Mexico','Turkey','France']
-BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "models" / "MentalHealthPredictor.pkl"
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+MODEL_PATH = BASE_DIR / "ML"/ "predictor" / "MentalHealthPredictor.pkl"
 model = joblib.load(MODEL_PATH)
 
 def predict_data(data : Data):
