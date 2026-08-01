@@ -24,8 +24,6 @@ venv.bak/
 instance/
 
 # Machine Learning artifacts
-*.pkl
-*.joblib
 *.h5
 *.hdf5
 *.pt
